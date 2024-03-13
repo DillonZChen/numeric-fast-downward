@@ -264,15 +264,15 @@ fast_downward_plugin(
     DEPENDS SEARCH_COMMON
 )
 
-fast_downward_plugin(
-    NAME LP_SOLVER
-    HELP "Interface to an LP solver"
-    SOURCES
-        lp/lp_internals.cc
-        lp/lp_solver.cc
-        lp/OsiIPCpxSolverInterface.cc
-    DEPENDENCY_ONLY
-)
+# fast_downward_plugin(
+#     NAME LP_SOLVER
+#     HELP "Interface to an LP solver"
+#     SOURCES
+#         lp/lp_internals.cc
+#         lp/lp_solver.cc
+#         lp/OsiIPCpxSolverInterface.cc
+#     DEPENDENCY_ONLY
+# )
 
 fast_downward_plugin(
     NAME RELAXATION_HEURISTIC
@@ -371,16 +371,16 @@ fast_downward_plugin(
     CORE_PLUGIN
 )
 
-fast_downward_plugin(
-    NAME TRANSFORMATION
-    HELP "Core task transformations"
-    SOURCES
-        transformation/tnf_exp.cc
-        transformation/tnf_no_goal.cc
-	transformation/resource_transformation.cc
-	transformation/numeric_explicit_task.cc
-    CORE_PLUGIN
-)
+# fast_downward_plugin(
+#     NAME TRANSFORMATION
+#     HELP "Core task transformations"
+#     SOURCES
+#         transformation/tnf_exp.cc
+#         transformation/tnf_no_goal.cc
+#         transformation/resource_transformation.cc
+#         transformation/numeric_explicit_task.cc
+#     CORE_PLUGIN
+# )
 
 fast_downward_plugin(
     NAME EXTRA_TASKS
@@ -393,24 +393,24 @@ fast_downward_plugin(
     DEPENDENCY_ONLY
 )
 
-fast_downward_plugin(
-    NAME CEGAR
-    HELP "Plugin containing the code for CEGAR heuristics"
-    SOURCES
-        cegar/abstraction.cc
-        cegar/abstract_search.cc
-        cegar/abstract_state.cc
-        cegar/additive_cartesian_heuristic.cc
-        cegar/arc.cc
-        cegar/cartesian_heuristic.cc
-        cegar/domains.cc
-        cegar/refinement_hierarchy.cc
-        cegar/split_selector.cc
-        cegar/subtask_generators.cc
-        cegar/utils.cc
-        cegar/utils_landmarks.cc
-    DEPENDS ADDITIVE_HEURISTIC EXTRA_TASKS LANDMARKS
-)
+# fast_downward_plugin(
+#     NAME CEGAR
+#     HELP "Plugin containing the code for CEGAR heuristics"
+#     SOURCES
+#         cegar/abstraction.cc
+#         cegar/abstract_search.cc
+#         cegar/abstract_state.cc
+#         cegar/additive_cartesian_heuristic.cc
+#         cegar/arc.cc
+#         cegar/cartesian_heuristic.cc
+#         cegar/domains.cc
+#         cegar/refinement_hierarchy.cc
+#         cegar/split_selector.cc
+#         cegar/subtask_generators.cc
+#         cegar/utils.cc
+#         cegar/utils_landmarks.cc
+#     DEPENDS ADDITIVE_HEURISTIC EXTRA_TASKS LANDMARKS
+# )
 
 fast_downward_plugin(
     NAME MAS_HEURISTIC
@@ -436,113 +436,113 @@ fast_downward_plugin(
         merge_and_shrink/types.cc
 )
 
-fast_downward_plugin(
-    NAME LANDMARKS
-    HELP "Plugin containing the code to reason with landmarks"
-    SOURCES
-        landmarks/exploration.cc
-        landmarks/h_m_landmarks.cc
-        landmarks/lama_ff_synergy.cc
-        landmarks/landmark_cost_assignment.cc
-        landmarks/landmark_count_heuristic.cc
-        landmarks/landmark_factory.cc
-        landmarks/landmark_factory_rpg_exhaust.cc
-        landmarks/landmark_factory_rpg_sasp.cc
-        landmarks/landmark_factory_zhu_givan.cc
-        landmarks/landmark_graph.cc
-        landmarks/landmark_graph_merged.cc
-        landmarks/landmark_status_manager.cc
-        landmarks/util.cc
-    DEPENDS LP_SOLVER
-)
+# fast_downward_plugin(
+#     NAME LANDMARKS
+#     HELP "Plugin containing the code to reason with landmarks"
+#     SOURCES
+#         landmarks/exploration.cc
+#         landmarks/h_m_landmarks.cc
+#         landmarks/lama_ff_synergy.cc
+#         landmarks/landmark_cost_assignment.cc
+#         landmarks/landmark_count_heuristic.cc
+#         landmarks/landmark_factory.cc
+#         landmarks/landmark_factory_rpg_exhaust.cc
+#         landmarks/landmark_factory_rpg_sasp.cc
+#         landmarks/landmark_factory_zhu_givan.cc
+#         landmarks/landmark_graph.cc
+#         landmarks/landmark_graph_merged.cc
+#         landmarks/landmark_status_manager.cc
+#         landmarks/util.cc
+#     DEPENDS LP_SOLVER
+# )
 
-fast_downward_plugin(
-    NAME NUMERIC_FAST_DOWNWARD
-    HELP "Heuristics for the Numeric variant NFD"
-    SOURCES
-        numeric/interval.cc
-	numeric/relaxed_interval_helper.cc
-	numeric/interval_relaxation_heuristic.cc
-	numeric/interval_max_heuristic.cc
-	numeric/interval_add_heuristic.cc
-	numeric/interval_FF_heuristic.cc
-	numeric/repetition_relaxation_heuristic.cc
-	numeric/repetition_max_heuristic.cc
-	numeric/repetition_add_heuristic.cc
-	numeric/repetition_FF_heuristic.cc
-	numeric/rmax_heuristic.cc
-	numeric/generalized_subgoaling_heuristic.cc
-   DEPENDS LP_SOLVER
-)
+# fast_downward_plugin(
+#     NAME NUMERIC_FAST_DOWNWARD
+#     HELP "Heuristics for the Numeric variant NFD"
+#     SOURCES
+#         numeric/interval.cc
+# 	numeric/relaxed_interval_helper.cc
+# 	numeric/interval_relaxation_heuristic.cc
+# 	numeric/interval_max_heuristic.cc
+# 	numeric/interval_add_heuristic.cc
+# 	numeric/interval_FF_heuristic.cc
+# 	numeric/repetition_relaxation_heuristic.cc
+# 	numeric/repetition_max_heuristic.cc
+# 	numeric/repetition_add_heuristic.cc
+# 	numeric/repetition_FF_heuristic.cc
+# 	numeric/rmax_heuristic.cc
+# 	numeric/generalized_subgoaling_heuristic.cc
+#    DEPENDS LP_SOLVER
+# )
 
-fast_downward_plugin(
-    NAME AIBR
-    HELP "Additive Interval-Relaxation Based Heuristic"
-    SOURCES
-        numeric/additive_transformation_helper.cc
-        numeric/additive_interval_based_relaxation.cc
-        numeric/aibr_heuristic.cc
-    DEPENDS NUMERIC_FAST_DOWNWARD
-)
+# fast_downward_plugin(
+#     NAME AIBR
+#     HELP "Additive Interval-Relaxation Based Heuristic"
+#     SOURCES
+#         numeric/additive_transformation_helper.cc
+#         numeric/additive_interval_based_relaxation.cc
+#         numeric/aibr_heuristic.cc
+#     DEPENDS NUMERIC_FAST_DOWNWARD
+# )
 
-fast_downward_plugin(
-    NAME RESOURCE_DETECTION
-    HELP "Heuristics for the Numeric variant NFD"
-    SOURCES
-	resource_detection/resource_detection.cc
-	resource_detection/execution_detection.cc
-   DEPENDS LP_SOLVER
-)
+# fast_downward_plugin(
+#     NAME RESOURCE_DETECTION
+#     HELP "Heuristics for the Numeric variant NFD"
+#     SOURCES
+# 	resource_detection/resource_detection.cc
+# 	resource_detection/execution_detection.cc
+#    DEPENDS LP_SOLVER
+# )
 
-fast_downward_plugin(
-    NAME IP_COMPILATION
-    HELP "IP compilations"
-    SOURCES
-	compilation/ip_compilation.cc
-        compilation/ip_constraint_generator.cc
-	compilation/sb_compilation.cc
-	compilation/sc_compilation.cc
-	compilation/sas_compilation.cc
-        compilation/numeric_constraints.cc
-	compilation/landmark_constraints.cc
-	compilation/iterative_horizon.cc
-   DEPENDS LP_SOLVER
-)
+# fast_downward_plugin(
+#     NAME IP_COMPILATION
+#     HELP "IP compilations"
+#     SOURCES
+# 	compilation/ip_compilation.cc
+#         compilation/ip_constraint_generator.cc
+# 	compilation/sb_compilation.cc
+# 	compilation/sc_compilation.cc
+# 	compilation/sas_compilation.cc
+#         compilation/numeric_constraints.cc
+# 	compilation/landmark_constraints.cc
+# 	compilation/iterative_horizon.cc
+#    DEPENDS LP_SOLVER
+# )
 
 fast_downward_plugin(
     NAME NUMERIC_OPERATOR_COUNTING_FAST_DOWNWARD
     HELP "Heuristics for the Numeric variant NFD"
     SOURCES
-        numeric_operator_counting/delete_relaxation.cc
+        # numeric_operator_counting/delete_relaxation.cc
         #numeric_operator_counting/delete_test.cc
-        numeric_operator_counting/numeric_state_equation_constraints.cc
-	numeric_operator_counting/invariant_constraints.cc
+        # numeric_operator_counting/numeric_state_equation_constraints.cc
+	    # numeric_operator_counting/invariant_constraints.cc
         numeric_operator_counting/numeric_helper.cc
-  	numeric_operator_counting/h_lm_numeric.cc
-  	numeric_operator_counting/lm_cut_numeric_constraints.cc
-    DEPENDS LP_SOLVER
+  	    # numeric_operator_counting/h_lm_numeric.cc
+  	    # numeric_operator_counting/lm_cut_numeric_constraints.cc
+    # DEPENDS LP_SOLVER
 )
 
 fast_downward_plugin(
     NAME NUMERIC_LANDMARKS_DOWNWARD
     HELP "Landmarks for the Numeric variant NFD"
     SOURCES
-    numeric_landmarks/landmark_factory_scala.cc
-	numeric_landmarks/numeric_lm_cut_landmarks.cc
-	numeric_landmarks/lm_cut_numeric_heuristic.cc
+        # numeric_landmarks/landmark_factory_scala.cc
+        numeric_landmarks/numeric_lm_cut_landmarks.cc
+        numeric_landmarks/lm_cut_numeric_heuristic.cc
 )
 
-fast_downward_plugin(
-    NAME OPERATOR_COUNTING
-    HELP "Plugin containing the code for operator counting heuristics"
-    SOURCES
-        operator_counting/constraint_generator.cc
-        operator_counting/lm_cut_constraints.cc
-        operator_counting/operator_counting_heuristic.cc
-        operator_counting/pho_constraints.cc
-        operator_counting/state_equation_constraints.cc
-  DEPENDS LP_SOLVER LANDMARK_CUT_HEURISTIC PDBS
-)
+# fast_downward_plugin(
+#     NAME OPERATOR_COUNTING
+#     HELP "Plugin containing the code for operator counting heuristics"
+#     SOURCES
+#         operator_counting/constraint_generator.cc
+#         operator_counting/lm_cut_constraints.cc
+#         operator_counting/operator_counting_heuristic.cc
+#         operator_counting/pho_constraints.cc
+#         operator_counting/state_equation_constraints.cc
+#   DEPENDS LP_SOLVER LANDMARK_CUT_HEURISTIC PDBS
+# )
 
 # fast_downward_plugin(
 #     NAME GUROBI_IP_COMPILATION
@@ -562,48 +562,48 @@ fast_downward_plugin(
 #         gurobi_compilation/relevance_constraints.cc
 # )
 
-fast_downward_plugin(
-    NAME PDBS
-    HELP "Plugin containing the code for PDBs"
-    SOURCES
-        pdbs/canonical_pdbs.cc
-        pdbs/canonical_pdbs_heuristic.cc
-        pdbs/dominance_pruning.cc
-        pdbs/incremental_canonical_pdbs.cc
-        pdbs/match_tree.cc
-        pdbs/max_additive_pdb_sets.cc
-        pdbs/max_cliques.cc
-        pdbs/pattern_collection_information.cc
-        pdbs/pattern_database.cc
-        pdbs/pattern_collection_generator_combo.cc
-        pdbs/pattern_collection_generator_genetic.cc
-        pdbs/pattern_collection_generator_hillclimbing.cc
-        pdbs/pattern_collection_generator_manual.cc
-        pdbs/pattern_collection_generator_systematic.cc
-        pdbs/pattern_generator_greedy.cc
-        pdbs/pattern_generator_manual.cc
-        pdbs/pattern_generator.cc
-        pdbs/pdb_heuristic.cc
-        pdbs/types.cc
-        pdbs/validation.cc
-        pdbs/zero_one_pdbs.cc
-        pdbs/zero_one_pdbs_heuristic.cc
-)
+# fast_downward_plugin(
+#     NAME PDBS
+#     HELP "Plugin containing the code for PDBs"
+#     SOURCES
+#         pdbs/canonical_pdbs.cc
+#         pdbs/canonical_pdbs_heuristic.cc
+#         pdbs/dominance_pruning.cc
+#         pdbs/incremental_canonical_pdbs.cc
+#         pdbs/match_tree.cc
+#         pdbs/max_additive_pdb_sets.cc
+#         pdbs/max_cliques.cc
+#         pdbs/pattern_collection_information.cc
+#         pdbs/pattern_database.cc
+#         pdbs/pattern_collection_generator_combo.cc
+#         pdbs/pattern_collection_generator_genetic.cc
+#         pdbs/pattern_collection_generator_hillclimbing.cc
+#         pdbs/pattern_collection_generator_manual.cc
+#         pdbs/pattern_collection_generator_systematic.cc
+#         pdbs/pattern_generator_greedy.cc
+#         pdbs/pattern_generator_manual.cc
+#         pdbs/pattern_generator.cc
+#         pdbs/pdb_heuristic.cc
+#         pdbs/types.cc
+#         pdbs/validation.cc
+#         pdbs/zero_one_pdbs.cc
+#         pdbs/zero_one_pdbs_heuristic.cc
+# )
 
-fast_downward_plugin(
-    NAME POTENTIALS
-    HELP "Plugin containing the code for potential heuristics"
-    SOURCES
-        potentials/diverse_potential_heuristics.cc
-        potentials/potential_function.cc
-        potentials/potential_heuristic.cc
-        potentials/potential_max_heuristic.cc
-        potentials/potential_optimizer.cc
-        potentials/sample_based_potential_heuristics.cc
-        potentials/single_potential_heuristics.cc
-        potentials/util.cc
-    DEPENDS LP_SOLVER
-)
+# fast_downward_plugin(
+#     NAME POTENTIALS
+#     HELP "Plugin containing the code for potential heuristics"
+#     SOURCES
+#         potentials/diverse_potential_heuristics.cc
+#         potentials/potential_function.cc
+#         potentials/potential_heuristic.cc
+#         potentials/potential_max_heuristic.cc
+#         potentials/potential_optimizer.cc
+#         potentials/sample_based_potential_heuristics.cc
+#         potentials/single_potential_heuristics.cc
+#         potentials/util.cc
+#     DEPENDS LP_SOLVER
+# )
 
 fast_downward_plugin(
     NAME SYMMETRIES
