@@ -1,5 +1,7 @@
 driver/*.pyc
 builds/
+src/search/bliss-0.73/
+*.o
 
 output
 plan

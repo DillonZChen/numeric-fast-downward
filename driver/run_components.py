@@ -6,11 +6,7 @@ import os.path
 import subprocess
 import sys
 
-from . import call
-from . import limits
-from . import portfolio_runner
-from . import returncodes
-from . import util
+from . import call, limits, portfolio_runner, returncodes, util
 from .plan_manager import PlanManager
 
 VALIDATE_MEMORY_LIMIT_IN_MB = 3072
@@ -110,7 +106,6 @@ def run_preprocess(args):
     preprocess = get_executable(args.build, REL_PREPROCESS_PATH)
     call_component(
         preprocess, args.preprocess_options,
-        stdin=args.preprocess_input,
         time_limit=time_limit, memory_limit=memory_limit)
 
 

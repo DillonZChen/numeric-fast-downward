@@ -8,6 +8,7 @@ def main():
     parser.add_argument("domain", help="domain file")
     parser.add_argument("problem", help="problem file")
     parser.add_argument("--plan_file", help="output plan file", default="plan")
+    parser.add_argument("--sas_file", help="classical sas", default="output.sas")
     parser.add_argument("--timeout", help="timeout in seconds", type=int, default=1800)
     args = parser.parse_args()
 
@@ -17,10 +18,13 @@ def main():
     cmd = [
         "python2",
         "fast-downward.py",
+        # "--cleanup",
         "--build",
         "release64",
         "--plan-file",
         args.plan_file,
+        "--sas_file",
+        args.sas_file,
         args.domain,
         args.problem,
         "--search",
