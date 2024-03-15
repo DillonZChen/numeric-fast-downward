@@ -333,6 +333,8 @@ void read_axioms(istream &in) {
 
 void read_everything(istream &in) {
     cout << "reading input... [t=" << utils::g_timer << "]" << endl;
+    string input_file_name;
+    in >> input_file_name;
     read_and_verify_version(in);
     read_metric(in);
     read_variables(in);
@@ -441,6 +443,8 @@ void read_everything(istream &in) {
 
     cout << "done initalizing global data [t=" << utils::g_timer << "]" << endl;
     if (PLAN_VIS_LOG != 0) g_plan_logger = new utils::PlanVisLogger();
+
+    std::remove(input_file_name.c_str());
 }
 
 

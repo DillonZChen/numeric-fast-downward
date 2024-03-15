@@ -325,6 +325,7 @@ void generate_cpp_input(const string in_file,
     ofstream outfile;
     outfile.open(in_file + ".num", ios::out);
 
+    outfile << in_file + ".num" << endl;
     outfile << "begin_version" << endl;
     outfile << PRE_FILE_VERSION << endl;
     outfile << "end_version" << endl;

@@ -153,6 +153,11 @@ int main(int argc, const char **argv) {
 					   successor_generator, transition_graphs, causal_graph);
     cout << "done" << endl;
 
+    std::remove(in_file.c_str());
+    if (!std::ifstream{in_file}){ // uses operator! of temporary stream object
+        cout << "Removed tmp file " << in_file << endl;
+    }
+
 //    cout << "-----------------------------------------------\n Eliminated Variables : \n--------------------------------------------------" << endl;
 //    int vcount = 0;
 //    for (const auto &var : internal_variables) {
